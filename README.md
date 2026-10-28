@@ -153,7 +153,6 @@ FMC 矩阵 / C 扫点 → 实时图像或 MAT 文件
 
 这是 `checkBoxMotionCapture_CheckedChanged` 实现的路线。先分别连接 ACS、OEMPA，
 并写入合适的运动、FMC 和触发参数；再提供路径 TXT。
-[fig03_system_workflow.pdf](https://github.com/user-attachments/files/34063904/fig03_system_workflow.pdf)
 <img width="4323" height="4016" alt="fig03_system_workflow" src="https://github.com/user-attachments/assets/2051cc87-3c13-4c5f-86f2-be7ff86f8917" />
 
 
