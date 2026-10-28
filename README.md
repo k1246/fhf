@@ -1,4 +1,4 @@
-# 水浸超声扫查系统 README
+[fig03_system_workflow.pdf](https://github.com/user-attachments/files/34063901/fig03_system_workflow.pdf)# 水浸超声扫查系统 README
 
 
 ## 1. 简介
@@ -78,7 +78,7 @@ FMC 的主流程在 `FrmTestTool`。
 
 ## 4. 设备通信总览
 
-### 4.1 ACS运动控制
+### 4.1 ACS运动控制器
 
 ```ACS
 按钮 / 路径任务
@@ -116,10 +116,12 @@ tmrMonitor_Tick → 更新界面
   `hslBtnDisConnect_Click` / `_ACSFormClosed` 关闭通信，停止状态更新。
 
 运动按钮中的“清零”调用 `SetFPosition(axis, 0)`，是设置控制器反馈坐标，
-并不是沿机械轴运动回原点。界面“急停”调用软件 API `KillAll` 和 `StopBuffer`；<img width="4323" height="4016" alt="fig01_acs_motion" src="https://github.com/user-attachments/assets/fa4a76f7-d71b-48c7-90d9-1bbe26c67aff" />
+并不是沿机械轴运动回原点。界面“急停”调用软件 API `KillAll` 和 `StopBuffer`；
+<img width="4323" height="4016" alt="fig01_acs_motion" src="https://github.com/user-attachments/assets/a763878c-57f1-45a6-aa38-cf6bdd101eee" />
 
 
-### 4.2 OEMPA
+
+### 4.2 OEMPA超声采集
 
 ```OEMPA扫查
 参数设置 / 激发按钮
@@ -144,11 +146,16 @@ FMC 矩阵 / C 扫点 → 实时图像或 MAT 文件
 配触发模式，`UpdateResolution` 和 `buttonWriteStep_Click` 配编码器分辨率、触发步距。
 `EnablePulser(true)` 是打开激发，不等于立刻同步返回完整数据；收到设备数据后才进入 A 扫或 C
 扫回调。若采用外部或编码器触发，还需要真实触发信号。
+<img width="4323" height="4016" alt="fig02_oempa_acquisition" src="https://github.com/user-attachments/assets/a66ad269-6c7b-489b-81cc-43356d53f88d" />
+
 
 ## 5. 逐点采集FMC完整流程
 
 这是 `checkBoxMotionCapture_CheckedChanged` 实现的路线。先分别连接 ACS、OEMPA，
 并写入合适的运动、FMC 和触发参数；再提供路径 TXT。
+[fig03_system_workflow.pdf](https://github.com/user-attachments/files/34063904/fig03_system_workflow.pdf)
+<img width="4323" height="4016" alt="fig03_system_workflow" src="https://github.com/user-attachments/assets/2051cc87-3c13-4c5f-86f2-be7ff86f8917" />
+
 
 ### 5.1 路径文件输入
 
