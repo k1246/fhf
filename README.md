@@ -1,4 +1,4 @@
-[fig03_system_workflow.pdf](https://github.com/user-attachments/files/34063901/fig03_system_workflow.pdf)# 水浸超声扫查系统 README
+# 水浸超声扫查系统 README
 
 
 ## 1. 简介
