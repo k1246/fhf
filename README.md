@@ -76,9 +76,9 @@ Program.Main
 菜单显隐由 `config.ini` 的功能开关控制。配方、用户、历史结果及导出属于辅助业务；超声原始
 FMC 的主流程在 `FrmTestTool`。
 
-## 4. 两台设备分别怎样通信
+## 4. 设备通信总览
 
-### 4.1 ACS
+### 4.1 ACS运动控制
 
 ```ACS
 按钮 / 路径任务
@@ -116,11 +116,12 @@ tmrMonitor_Tick → 更新界面
   `hslBtnDisConnect_Click` / `_ACSFormClosed` 关闭通信，停止状态更新。
 
 运动按钮中的“清零”调用 `SetFPosition(axis, 0)`，是设置控制器反馈坐标，
-并不是沿机械轴运动回原点。界面“急停”调用软件 API `KillAll` 和 `StopBuffer`；
+并不是沿机械轴运动回原点。界面“急停”调用软件 API `KillAll` 和 `StopBuffer`；<img width="4323" height="4016" alt="fig01_acs_motion" src="https://github.com/user-attachments/assets/fa4a76f7-d71b-48c7-90d9-1bbe26c67aff" />
+
 
 ### 4.2 OEMPA
 
-```OEMPA
+```OEMPA扫查
 参数设置 / 激发按钮
   ↓
 csDriverOEMPA 包装层 → 厂家原生驱动
